@@ -1,0 +1,29 @@
+#Temperature-Monitoring_Mohd Rihan_202501100700095_ECE B
+#Temperature Monitoring System Using Python
+
+import random
+import time
+
+min_temp = float(input("Enter minimum temperature limit: "))
+max_temp = float(input("Enter maximum temperature limit: "))
+
+print(f"Temperature monitoring started. Min: {min_temp}°C, Max: {max_temp}°C")
+print("Press Ctrl+C to stop.\n")
+
+try:
+    while True:
+        temperature = random.uniform(0.0, 100.0) 
+        
+        print(f"Current temperature: {temperature:.1f}°C", end=" -> ")
+        
+        if temperature < min_temp:
+            print("ALERT: Temperature TOO LOW!") 
+        elif temperature > max_temp:
+            print("ALERT: Temperature TOO HIGH!")
+        else:
+            print("OK: Temperature NORMAL.")
+        
+        time.sleep(2)
+        
+except KeyboardInterrupt:
+    print("\nMonitoring stopped by user.")
